@@ -1,0 +1,20 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+
+# Compile files
+*.class
+
+# Log files
+*.log
+
+# IDEs
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

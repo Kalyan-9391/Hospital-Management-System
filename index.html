@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CarePulse - Modern Hospital Management System Portal</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="CarePulse HMS is a premium, secure, and modern clinic and hospital management portal. Book doctor appointments, download medical reports, prescriptions, and view billing invoices.">
+  <meta name="keywords" content="hospital management, patient portal, clinic scheduler, online appointment booking, digital health reports">
+  <meta name="author" content="CarePulse Healthcare Network">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts & Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-slate-50 text-slate-700 min-h-screen overflow-x-hidden">
+
+  <!-- Core App Layout Grid -->
+  <div class="flex min-h-screen relative">
+    
+    <!-- Sidebar Navigation Slot (Populated dynamically) -->
+    <aside id="sidebar-container" class="hidden lg:block shrink-0 transition-all duration-300"></aside>
+    
+    <!-- Right Canvas Area (Header + Main content) -->
+    <div class="flex-1 flex flex-col min-w-0">
+      
+      <!-- Top Header Slot (Populated dynamically) -->
+      <header id="header-container" class="sticky top-0 z-30 shadow-sm shadow-slate-100/40"></header>
+      
+      <!-- Main Content Canvas -->
+      <main id="app-container" class="flex-1 p-0 overflow-y-auto"></main>
+      
+      <!-- Footer -->
+      <footer class="bg-white border-t border-slate-100 py-6 text-center text-xs text-slate-400 font-semibold mt-auto">
+        <p>&copy; 2026 CarePulse Medical Group. Fully compliant with HIPAA and secure SSL certifications.</p>
+      </footer>
+    </div>
+  </div>
+
+  <!-- FLOATING HELP CHATBOT UI -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <!-- Chatbot Window Panel -->
+    <div id="chatbot-panel" class="hidden w-80 sm:w-96 h-[400px] bg-white border border-slate-200/80 rounded-3xl shadow-2xl flex flex-col mb-4 overflow-hidden animate-fade-in">
+      <div class="bg-gradient-primary p-4 text-white flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping"></div>
+          <span class="font-bold text-sm">CarePulse Help Chatbot</span>
+        </div>
+        <button id="close-chatbot" class="text-white/80 hover:text-white font-bold text-lg">&times;</button>
+      </div>
+      <!-- Messages List -->
+      <div id="chat-messages" class="flex-1 p-4 overflow-y-auto flex flex-col gap-3">
+        <div class="bg-slate-100 text-slate-700 max-w-[80%] rounded-2xl px-4 py-2.5 text-xs font-medium self-start rounded-tl-none">
+          Hi! I am CarePulse AI Support. How can I help you today? You can ask me about scheduling appointments, emergency ambulance lines, or billing instructions.
+        </div>
+      </div>
+      <!-- Form Input -->
+      <form id="chat-form" class="p-3 border-t border-slate-100 flex gap-2 bg-slate-50">
+        <input type="text" id="chat-input" required class="flex-1 px-3 py-2 border border-slate-200 bg-white rounded-xl text-xs input-focus" placeholder="Ask CarePulse support...">
+        <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-colors">Send</button>
+      </form>
+    </div>
+
+    <!-- Floating Trigger Bubble -->
+    <button id="chatbot-trigger" class="w-14 h-14 bg-gradient-primary rounded-full text-white flex items-center justify-center shadow-xl hover:scale-105 transition-transform">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742a3 3 0 0 0 5.32 0M12 17.25h.008v.008H12v-.008Zm0-3.75h.008v.008H12v-.008ZM12 9.75h.008v.008H12v-.008ZM21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- App Scripts Loaded Sequentially -->
+  <script src="js/store.js"></script>
+  <script src="js/views.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
